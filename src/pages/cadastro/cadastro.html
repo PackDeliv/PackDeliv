@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>cadastro</ion-title>
+    <ion-title>Cadastro de usuário</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -19,6 +19,11 @@
     <ion-item>
       <ion-label floating>Nome de usuário</ion-label>
       <ion-input type="text" id="inputNomeUsuario" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>CNPJ</ion-label>
+      <ion-input type="text" id="inputCNPJ" required></ion-input>
     </ion-item>
 
     <ion-item>
@@ -42,8 +47,8 @@
     </ion-item>
 
     <ion-item>
-      <button ion-button color="default" round outline (click)="fazerCadastro()">
-        Entrar
+      <button ion-button color="secondary" block large (click)="fazerCadastro()">
+        Cadastrar
       </button>
     </ion-item>
 

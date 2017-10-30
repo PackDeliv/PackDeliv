@@ -20,35 +20,37 @@ export class CadastroPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
+  /**
+   * Realiza o cadastro do usuário inserindo as informações
+   * no banco de dados.
+   * 
+   * Feito por: Matheus Campos da Silva, 30/10/2017
+   */
   public fazerCadastro(): void {
+    // Pega as informações do usuário
     let nomeUsuario = (<HTMLInputElement>document.getElementById('inputNomeUsuario')).value;
+    let cnpj = (<HTMLInputElement>document.getElementById('inputCNPJ')).value;
     let senha = (<HTMLInputElement>document.getElementsByClassName('inputSenha')[0]);
     let SenhaConf = (<HTMLInputElement>document.getElementsByClassName('inputSenha')[1]);
 
+    // Compara se as senhas digitadas são correspondentes
     if (senha.value !== SenhaConf.value) {
-      senha.focus();
-      alert('As senhas não correspondem.');
+      // Faz algo caso não sejam
       return;
     }
 
+    // Pega o e-mail do usuário
     let email = (<HTMLInputElement>document.getElementsByClassName('inputEmail')[0]);
     let emailConf = (<HTMLInputElement>document.getElementsByClassName('inputEmail')[1]);
 
+    // Compara se os e-mails digitados são correspondentes
     if (email.value !== emailConf.value) {
-      email.focus();
-      alert('Os e-mails não correspondem.');
+      // Faz algo caso não sejam
       return;
     }
 
-    this.request = new XMLHttpRequest();
-    this.request.onreadystatechange == function () {
-      if (this.request.readyState == 4 && this.request.status == 200) {
+    // Implementar a requisição à API aqui
 
-      }
-    }
-    let args = '?username=' + nomeUsuario + '&passwd=' + senha + '&email=' + email;
-    this.request.open('POST', 'http://localhost/user/api/v1.0' + args, true);
-    this.request.send(null);
   }
 
   ionViewDidLoad() {

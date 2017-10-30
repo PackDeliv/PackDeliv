@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { CadastroPage } from "../cadastro/cadastro";
+import { HomePage } from "../home/home";
 /**
  * Generated class for the LoginPage page.
  *
@@ -17,25 +18,31 @@ import { CadastroPage } from "../cadastro/cadastro";
 export class LoginPage {
 
   private request: XMLHttpRequest;
+  public cadastroPage = CadastroPage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
+  /**
+   * Compara as credenciais fornecidas com as credenciais
+   * do banco de dados através da API RESTful, redireciona
+   * o usuário para a página Home.
+   * 
+   * Feito por: Matheus Campos da Silva, 30/10/2017
+   */
   public fazerLogin(): void {
+    // Pega as credenciais do usuário
     let nomeUsuario = (<HTMLInputElement>document.getElementById('inputNomeUsuario'));
     let senha = (<HTMLInputElement>document.getElementById('inputSenha'));
 
-    this.request.onreadystatechange = function () {
-      if (this.readyState == 4 && this.status == 200) {
-        // Método aqui
-      }
-    }
-    this.request.open('POST', 'http://localhost/user/api/v1.0/', true);
-    this.request.send(null);
-  }
+    // Implementar a requisição à API aqui
 
-  public redirecionarCadastro(): void {
-    this.navCtrl.push(CadastroPage);
+    // Dados do usuario a ser logado
+    var usuario = {
+      nomeCompleto: 'Matheus Campos da Silva',
+    };
+
+    this.navCtrl.push(HomePage, usuario);
   }
 
   ionViewDidLoad() {

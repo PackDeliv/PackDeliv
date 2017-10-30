@@ -6,14 +6,20 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Bem-vindo ao PackDeliv</ion-title>
-  </ion-navbar>
+  <!-- Retirar o comentário abaixo para mostrar a NavBar -->
+  <!-- <ion-navbar>
+    <ion-title>Login</ion-title>
+  </ion-navbar> -->
 
 </ion-header>
 
 
 <ion-content padding>
+
+  <div text-center>
+    <ion-img width="80" height="80" src="../../assets/imgs/logo.jpeg"></ion-img>
+  </div>
+
   <ion-list>
 
     <ion-item>
@@ -26,8 +32,14 @@
       <ion-input type="password" id="inputSenha"></ion-input>
     </ion-item>
 
-    <button ion-button round outline color="default" (click)="fazerLogin()">Entrar</button>
-
-    <button ion-button clear color="secondary" (click)="redirecionarCadastro()">Cadastre-se</button>
   </ion-list>
+
+  <div text-center>
+    <button ion-button color="secondary" large (click)="fazerLogin()">Entrar</button>
+  </div>
+  
+  <div text-center>
+    <button ion-button clear color="secondary" [navPush]="cadastroPage">Cadastre-se</button>
+  </div>
+  
 </ion-content>
