@@ -23,18 +23,18 @@ export class CadastroPage {
   public fazerCadastro(): void {
     let nomeUsuario = (<HTMLInputElement>document.getElementById('inputNomeUsuario')).value;
     let senha = (<HTMLInputElement>document.getElementsByClassName('inputSenha')[0]);
-    let senhaConfirmacao = (<HTMLInputElement>document.getElementsByClassName('inputSenha')[1]);
+    let SenhaConf = (<HTMLInputElement>document.getElementsByClassName('inputSenha')[1]);
 
-    if (senha.value !== senhaConfirmacao.value) {
+    if (senha.value !== SenhaConf.value) {
       senha.focus();
       alert('As senhas não correspondem.');
       return;
     }
 
     let email = (<HTMLInputElement>document.getElementsByClassName('inputEmail')[0]);
-    let emailConfirmacao = (<HTMLInputElement>document.getElementsByClassName('inputEmail')[1]);
+    let emailConf = (<HTMLInputElement>document.getElementsByClassName('inputEmail')[1]);
 
-    if (email.value !== emailConfirmacao.value) {
+    if (email.value !== emailConf.value) {
       email.focus();
       alert('Os e-mails não correspondem.');
       return;
