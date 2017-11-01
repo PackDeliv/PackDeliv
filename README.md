@@ -1,26 +1,23 @@
-This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
+Baixe e instale o Node.js
+Link :https://nodejs.org/dist/v8.8.1/win-x64/node.exe
 
-## How to use this template
+Abra o CMD e rode: npm install -g cordova ionic
 
-*This template does not work on its own*. The shared files for each starter are found in the [ionic2-app-base repo](https://github.com/ionic-team/ionic2-app-base).
+Baixe o Visual Studio Code: https://go.microsoft.com/fwlink/?Linkid=852157
 
-To use this template, either create a new ionic project using the ionic node.js utility, or copy the files from this repository into the [Starter App Base](https://github.com/ionic-team/ionic2-app-base).
+Entre nesse github e clone o repositorio.
+Link: https://github.com/PackDeliv/PackDeliv
 
-### With the Ionic CLI:
+Abra o Visual Studio Code e abra a pasta clonada do repositorio.
+http://prntscr.com/h50y94
 
-Take the name after `ionic2-starter-`, and that is the name of the template to be used when using the `ionic start` command below:
+Agora você pode fazer alterações nos arquivos.
 
-```bash
-$ sudo npm install -g ionic cordova
-$ ionic start myBlank blank
-```
+No cmd se mova para a pasta do projeto
+http://prntscr.com/h50ytc
 
-Then, to run it, cd into `myBlank` and run:
+Agora rode o comando: ionic serve
 
-```bash
-$ ionic cordova platform add ios
-$ ionic cordova run ios
-```
-
-Substitute ios for android if not on a Mac.
-
+Será solicitado a instalação de modulos, aceite e espere que o servidor seja iniciado no seu navegador padrão.
+http://prntscr.com/h50za7
+http://prntscr.com/h50zeu
