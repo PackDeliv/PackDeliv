@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { UsuarioProvider } from "../../providers/usuario/usuario";
+
+import { LoginPage } from "../login/login";
 
 /**
  * Generated class for the CadastroPage page.
@@ -14,9 +17,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'cadastro.html',
 })
 export class CadastroPage {
-
-  private request: XMLHttpRequest;
   
+  private usuarioDAO: UsuarioProvider;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
@@ -36,6 +39,10 @@ export class CadastroPage {
     // Compara se as senhas digitadas são correspondentes
     if (senha.value !== SenhaConf.value) {
       // Faz algo caso não sejam
+      senha.innerText = '';
+      SenhaConf.innerText = '';
+      senha.focus();
+      alert('As senhas não são correspondentes.')
       return;
     }
 
@@ -46,11 +53,23 @@ export class CadastroPage {
     // Compara se os e-mails digitados são correspondentes
     if (email.value !== emailConf.value) {
       // Faz algo caso não sejam
+      email.innerText = '';
+      emailConf.innerText = '';
+      email.focus();
+      alert('E-mails não são correspondentes.');
       return;
     }
 
-    // Implementar a requisição à API aqui
+    // Cria o objeto usuario e o cadastro no BD
+    var usuario = {
+      nomeCompleto: nomeUsuario,
+      cnpj: cnpj,
+      senha: senha.value,
+      email: email.value
+    };
+    this.usuarioDAO.cadastrar(usuario);
 
+    this.navCtrl.push(LoginPage);
   }
 
   ionViewDidLoad() {

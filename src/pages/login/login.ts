@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { UsuarioProvider } from "../../providers/usuario/usuario";
 
 import { CadastroPage } from "../cadastro/cadastro";
 import { HomePage } from "../home/home";
@@ -17,8 +18,8 @@ import { HomePage } from "../home/home";
 })
 export class LoginPage {
 
-  private request: XMLHttpRequest;
   public cadastroPage = CadastroPage;
+  private usuarioDAO: UsuarioProvider;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -32,15 +33,14 @@ export class LoginPage {
    */
   public fazerLogin(): void {
     // Pega as credenciais do usuário
-    let nomeUsuario = (<HTMLInputElement>document.getElementById('inputNomeUsuario'));
-    let senha = (<HTMLInputElement>document.getElementById('inputSenha'));
+    let nomeUsuario = (<HTMLInputElement>document.getElementById('inputNomeUsuario')).value;
+    let senha = (<HTMLInputElement>document.getElementById('inputSenha')).value;
 
-    // Implementar a requisição à API aqui
-
-    // Dados do usuario a ser logado
-    var usuario = {
-      nomeCompleto: 'Matheus Campos da Silva',
-    };
+    // Faz a requisição à API e retorna os dados para o objeto usuario
+    var usuario = this.usuarioDAO.getUsuario({
+      nomeUsuario: nomeUsuario,
+      senha: senha
+    });
 
     this.navCtrl.push(HomePage, usuario);
   }
